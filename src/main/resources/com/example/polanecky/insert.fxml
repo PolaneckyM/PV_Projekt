@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.collections.FXCollections?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.polanecky.InsertController">
+    <children>
+        <Label text="Vlozeni dat">
+            <font>
+                <Font name="Arial" size="27.0" />
+            </font>
+        </Label>
+
+              <Label text="Vyberte tabulku do ktere vlozite data">
+            <font>
+                <Font name="Arial" size="15.0" />
+            </font>
+        </Label>
+        <Region prefHeight="12.0" prefWidth="600.0" />
+              <ChoiceBox fx:id="choiceBox" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Oddeleni"/>
+                    <String fx:value="Objednavka"/>
+                    <String fx:value="Zakaznik"/>
+                    <String fx:value="Zamestnanec"/>
+                    <String fx:value="Produkt"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <Region prefHeight="21.0" prefWidth="600.0" />
+        <VBox fx:id="oddeleniContainer" managed="false" spacing="10" visible="false">
+           <children>
+               <TextField promptText="Nazev" fx:id="oddeleniNazev"/>
+               <TextField promptText="Popis" fx:id="oddeleniPopis"/>
+               <Button mnemonicParsing="false" onAction="#addToOddeleni" text="Vlozit" />
+               <Label text="Vlozeno uspesne" visible="false" fx:id="oddeleniAlert">
+                   <font>
+                       <Font name="Arial" size="15.0" />
+                   </font>
+               </Label>
+           </children>
+        </VBox>
+      <VBox id="objednavkaContainer" fx:id="objednavkaContainer" alignment="CENTER" managed="false" spacing="10" visible="false">
+         <children>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="zakaznik_id" fx:id="objednavkaZakaznikId" />
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="produkt_id" fx:id="objednavkaProduktId"/>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="mnozstvi" fx:id="objednavkaMnozstvi"/>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="cena" fx:id="objednavkaCena"/>
+            <DatePicker promptText="Datum" fx:id="objednavkaDatum"/>
+             <Button mnemonicParsing="false" onAction="#addToObjednavka" text="Vlozit" />
+             <Label text="Vlozeno uspesne" visible="false" fx:id="objednavkaAlert">
+                 <font>
+                     <Font name="Arial" size="15.0" />
+                 </font>
+             </Label>
+         </children>
+      </VBox>
+       <VBox fx:id="zakaznikContainer" alignment="CENTER" managed="false" spacing="10" visible="false">
+         <children>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="jmeno" fx:id="zakaznikJmeno"/>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="prijmeni" fx:id="zakaznikPrijmeni"/>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="email" fx:id="zakaznikEmail"/>
+            <DatePicker promptText="Datum registrace" fx:id="zakaznikDatumReg"/>
+             <Button mnemonicParsing="false" onAction="#addToZakaznik" text="Vlozit" />
+             <Label text="Vlozeno uspesne" visible="false" fx:id="zakaznikAlert">
+                 <font>
+                     <Font name="Arial" size="15.0" />
+                 </font>
+             </Label>
+         </children>
+      </VBox>
+       <VBox fx:id="zamestnanecContainer" alignment="CENTER" managed="false" spacing="10" visible="false">
+         <children>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="jmeno" fx:id="zamestnanecJmeno"/>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="prijmeni" fx:id="zamestnanecPrijmeni" />
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="email" fx:id="zamestnanecEmail"/>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="pozice" fx:id="zamestnanecPozice"/>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="plat" fx:id="zamestnanecPlat"/>
+              <Button mnemonicParsing="false" onAction="#addToZamestnanec" text="Vlozit" />
+             <Label text="Vlozeno uspesne" visible="false" fx:id="zamestnanecAlert">
+                 <font>
+                     <Font name="Arial" size="15.0" />
+                 </font>
+             </Label>
+         </children>
+      </VBox>
+        <VBox fx:id="produktContainer" alignment="CENTER" managed="false" spacing="10" visible="false">
+         <children>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="nazev" fx:id="produktNazev"/>
+            <TextField alignment="CENTER" maxWidth="-Infinity" promptText="cena" fx:id="produktCena"/>
+            <CheckBox mnemonicParsing="false" text="Skladem" fx:id="produktSkladem"/>  
+             <Button mnemonicParsing="false" onAction="#addProdukt" text="Vlozit" />
+             <Label text="Vlozeno uspesne" visible="false" fx:id="produktAlert">
+                 <font>
+                     <Font name="Arial" size="15.0" />
+                 </font>
+             </Label>
+         </children>
+      </VBox>
+        <Region prefHeight="21.0" prefWidth="600.0" />
+        
+        
+    </children>
+</VBox>
